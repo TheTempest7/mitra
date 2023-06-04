@@ -1,7 +1,8 @@
-import { GET_POSTS, SET_POSTS} from "../constants";
+import { GET_POSTS, SET_POSTS, SEARCH_POSTS} from "../constants";
 
 const initialState = {
-posts:[],
+  search:'',
+  posts:[],
 };
 
 const posts = (state = initialState, { type, payload }) => {
@@ -11,6 +12,12 @@ const posts = (state = initialState, { type, payload }) => {
         ...state, 
         posts: [ ...payload],
       };
+    case SEARCH_POSTS:
+      return {
+        ...state,
+        posts:[...state.posts.filter((i)=>i.title.includes(payload))],
+      }
+    
     default: return state;
   }
 };

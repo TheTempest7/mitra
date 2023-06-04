@@ -1,4 +1,4 @@
-import { GET_POSTS, SET_POSTS, GET_COMMENTS,SET_COMMENTS } from "../constants";
+import { GET_POSTS, SET_POSTS, GET_COMMENTS, SET_COMMENTS, SEARCH_POSTS } from "../constants";
 
 export const getPosts = () => ({
     type: GET_POSTS
@@ -16,6 +16,11 @@ export const getComments = (payload) =>({
 
 export const setComments = (payload) =>({
   type:SET_COMMENTS,
+  payload,
+})
+
+export const serarchPosts = (payload) =>({
+  type:SEARCH_POSTS,
   payload,
 })
 
