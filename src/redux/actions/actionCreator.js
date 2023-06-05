@@ -1,7 +1,11 @@
-import { GET_POSTS, SET_POSTS, GET_COMMENTS, SET_COMMENTS, SEARCH_POSTS } from "../constants";
+import { 
+  GET_POSTS, SET_POSTS,
+  GET_COMMENTS, SET_COMMENTS, 
+  SEARCH_POSTS, TOGGEL_COMMENTS } from "../constants";
 
-export const getPosts = () => ({
-    type: GET_POSTS
+export const getPosts = (payload) => ({
+    type: GET_POSTS,
+    payload,
 })
 
 export const setPosts = (payload) => ({
@@ -22,5 +26,9 @@ export const setComments = (payload) =>({
 export const serarchPosts = (payload) =>({
   type:SEARCH_POSTS,
   payload,
+})
+
+export const blockComments = () =>({
+  type:TOGGEL_COMMENTS,
 })
 

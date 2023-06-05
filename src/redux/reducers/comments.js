@@ -1,8 +1,9 @@
-import {GET_COMMENTS, SET_COMMENTS } from "../constants";
+import {GET_COMMENTS, SET_COMMENTS, TOGGEL_COMMENTS } from "../constants";
 
 const initialState = {
 postID:"",
-currentComments:[]
+currentComments:[],
+toggleComments:false,
 };
 
 const comments = (state = initialState, { type, payload }) => {
@@ -17,6 +18,11 @@ const comments = (state = initialState, { type, payload }) => {
         ...state, 
         currentComments: payload,
     };
+    case TOGGEL_COMMENTS:
+        return {
+            ...state,
+            toggleComments:!state.toggleComments
+        }
     default: return state;
 }
 };
