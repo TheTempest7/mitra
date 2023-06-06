@@ -1,8 +1,9 @@
 import React from "react";
 import { Route, Routes ,Navigate,useLocation,BrowserRouter} from "react-router-dom";
 import PostPagination from "./Posts/PostPagination";
-import AboutMe from "./AboutMe";
-const UserSpecifics = React.lazy(()=>import("./UserSpecifics"))
+import UserSpecifics from "./UserSpecifics";
+const AboutMe = React.lazy(()=>import("./AboutMe"))
+
 
 
 

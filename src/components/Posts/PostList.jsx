@@ -13,7 +13,7 @@ const posts = useSelector(store => store.posts.posts);
 console.log(errorPost);
 
 
-console.log(store);
+
 const dispatch = useDispatch();
 
 useEffect(()=>{
