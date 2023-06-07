@@ -24,7 +24,6 @@ export function* workSetPostsSaga(actions){
 export function* workSetComments(actions){
     try {
         const {data} = yield getComments(actions.payload);
-        console.log(data[0]['postId']);
         yield put(setComments(data));
         yield put(setID(data[0]['postId']));
 

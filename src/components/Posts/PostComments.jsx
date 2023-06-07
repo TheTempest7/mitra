@@ -3,9 +3,11 @@ import { Loader } from '../Loader/Loader';
 import Toast from 'react-bootstrap/Toast';
 import { Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
 
-export const PostComments = ({currentComments, id,toggleShowA,showA}) => {
+
+
+export const PostComments = ({ currentComments, id, toggleShowA, showA }) => {
+    
     const styles = {
         fatherContainer: {
             display:"flex",
@@ -26,7 +28,6 @@ export const PostComments = ({currentComments, id,toggleShowA,showA}) => {
         }
     }
     const postID = useSelector(store=>store.comments.postID)
-    console.log(postID,currentComments[0]?.['postId']);
 
     return ( showA&&  
     <Container style={styles.fatherContainer}>

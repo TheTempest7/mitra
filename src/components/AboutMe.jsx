@@ -12,9 +12,9 @@ function AboutMe() {
         ["Address","Gzhel, Novaya 21, Moscow region, Ramensky district, Russia"],
         ["Date of birth","September 11, 1996"],
         ["Name","Khrapunov"],
-    ]
-    const middle = useMediaQuery({ query: '(max-width: 999px)' })
-    const small = useMediaQuery({ query: '(max-width: 600px)' })
+    ];
+    const middle = useMediaQuery({ query: '(max-width: 999px)' });
+    const small = useMediaQuery({ query: '(max-width: 600px)' });
     const styles = {
         upestContainer:{
             marginTop:"5vh"
