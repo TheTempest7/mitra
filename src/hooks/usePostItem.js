@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
-import { getComments, blockComments } from "../redux/actions/actionCreator";
+import {  blockComments, start } from "../redux/actions/actionCreator";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-export default function usePostItem({body,title,id,userId,toggleComments}) {
+export default function usePostItem({body,title,id,userId,toggleComments,currentComments}) {
     const [showA, setShowA] = useState(false);
     const navigate = useNavigate();
     const toggleShowA = () => {
@@ -12,7 +12,7 @@ export default function usePostItem({body,title,id,userId,toggleComments}) {
 
     const dispatch = useDispatch();
     const commentsHandler = () =>{
-        setTimeout(()=>dispatch(getComments(id)),500)
+        setTimeout(()=>dispatch(start(id)),500)
     }
     const commentBlockHandler = () => {
         dispatch(blockComments());
@@ -27,6 +27,7 @@ export default function usePostItem({body,title,id,userId,toggleComments}) {
             toggleShowA();
             commentsHandler();
         } else if(toggleComments && showA){
+            console.log(currentComments);
             commentBlockHandler();
             toggleShowA();
         }

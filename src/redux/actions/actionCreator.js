@@ -2,7 +2,7 @@ import {
   GET_POSTS, SET_POSTS,
   GET_COMMENTS, SET_COMMENTS, 
   SEARCH_POSTS, TOGGEL_COMMENTS,
-  SORT_POSTS,
+  SORT_POSTS, START
 } from "../constants";
 
 export const getPosts = (payload) => ({
@@ -15,7 +15,7 @@ export const setPosts = (payload) => ({
   payload,
 })
 
-export const getComments = (payload) => ({
+export const setID = (payload) => ({
   type:GET_COMMENTS,
   payload,
 })
@@ -38,3 +38,7 @@ export const blockComments = () => ({
   type:TOGGEL_COMMENTS,
 })
 
+export const start = (payload) => ({
+  type:START,
+  payload,
+})

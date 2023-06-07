@@ -25,12 +25,12 @@ export const PostComments = ({currentComments, id,toggleShowA,showA}) => {
             margin:" -20% -20% 0 0 ",
         }
     }
-
     const postID = useSelector(store=>store.comments.postID)
+    console.log(postID,currentComments[0]?.['postId']);
 
     return ( showA&&  
     <Container style={styles.fatherContainer}>
-        { (postID===currentComments[0]?.['postId']) ?
+        { (postID===id) ?
         <Container>
                 {currentComments?.map((i)=>{
                 return <Toast 

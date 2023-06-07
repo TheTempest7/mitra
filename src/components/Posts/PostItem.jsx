@@ -15,7 +15,7 @@ export const PostItem = React.memo(({body,title,id,userId}) =>{
     const {currentComments,toggleComments} = useSelector(store => store.comments)
     const errorComments = useSelector(store=>store.errors.errorsCommemt);
 
-    const { showA, toggleShowA,buttonClick, redirect } = usePostItem({body,title,id,userId,toggleComments});
+    const { showA, toggleShowA,buttonClick, redirect } = usePostItem({body,title,id,userId,toggleComments,currentComments});
 
     const fullHD = useMediaQuery({ query: "(min-width: 1079px)" })
     const middle = useMediaQuery({ query: "(min-width: 775px)" })
