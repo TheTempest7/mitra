@@ -1,4 +1,4 @@
-import { useLocation} from "react-router";
+
 import { useSelector } from "react-redux";
 import { Container, ListGroup } from "react-bootstrap";
 import { PostItem } from "./Posts/PostItem";
@@ -6,7 +6,7 @@ import {Nav} from "react-bootstrap";
 import { Loader } from "./Loader/Loader";
 
 function UserSpecifics() {
-    const location = useLocation();
+
     const posts = useSelector(store => store.posts.posts);
 
     return (

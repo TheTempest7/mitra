@@ -1,11 +1,10 @@
-import ListGroup from 'react-bootstrap/ListGroup';
+
 import { Loader } from '../Loader/Loader';
 import Toast from 'react-bootstrap/Toast';
 import { Container } from 'react-bootstrap';
 
 export const PostComments = ({currentComments, postID, id,toggleShowA,showA}) => {
-    // <Container style={{display:"flex",justifyContent:"center",
-    // position:'absolute',zIndex:'10',flexWrap:'wrap',width:'100%',marginTop:"22vh"}}>
+
     return ( showA&&
     <Container style={{display:"flex",justifyContent:"center",
     position:'absolute',zIndex:'10',flexWrap:'wrap',width:'100%',top:"90%"}}>
@@ -31,4 +30,3 @@ export const PostComments = ({currentComments, postID, id,toggleShowA,showA}) =>
     </Container> 
     )}
 
-    // <Container style={{display:"flex",justifyContent:"center",}} >

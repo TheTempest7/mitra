@@ -1,11 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';  
 import { useEffect, useState } from 'react';
-import {Nav, Navbar, Container, NavDropdown,Form,Button, Toast} from 'react-bootstrap';  
-import { useSelector, useDispatch } from 'react-redux';
+import { Nav, Navbar, Container, Form, Button, Toast } from 'react-bootstrap';  
+import {  useDispatch } from 'react-redux';
 import { serarchPosts, getPosts, sortPosts } from '../redux/actions/actionCreator';
 import { useMediaQuery } from 'react-responsive';
+import useNavbarBody from '../hooks/useNavbarBody';
 
 function Navbarbody() {
+    const  { showA, toggleShowA, search, sortTitlePost, searchSend, handler } = useNavbarBody();
     const tiny = useMediaQuery({ query: '(max-width: 400px)' })
 
     const styles = {
@@ -13,34 +15,33 @@ function Navbarbody() {
             width:"100px"
         },
         searchBarHuge:{
-
         }
     }
-const posts = useSelector(store => store.posts.posts);
-    const [showA, setShowA] = useState(false);
-    const toggleShowA = () => setShowA(!showA);
-    const [search,setSearch] = useState("");
-    const dispatch = useDispatch();
-    const handler = (e) => {
-        setSearch(e.target.value);
-    }
+
+    // const [showA, setShowA] = useState(false);
+    // const toggleShowA = () => setShowA(!showA);
+    // const [search,setSearch] = useState("");
+    // const dispatch = useDispatch();
+    // const handler = (e) => {
+    //     setSearch(e.target.value);
+    // }
 
 
-    const sortTitlePost = () => {
-        dispatch(sortPosts())
-        }
+    // const sortTitlePost = () => {
+    //     dispatch(sortPosts())
+    //     }
         
 
-    const searchSend = () => {
-        dispatch(serarchPosts(search));
-    }
+    // const searchSend = () => {
+    //     dispatch(serarchPosts(search));
+    // }
 
 
-    useEffect(()=>{
-        if(search===""){
-            dispatch(getPosts())
-        }
-    },[search])
+    // useEffect(()=>{
+    //     if(search===""){
+    //         dispatch(getPosts())
+    //     }
+    // },[search])
     return (
 <Navbar  bg="primary" expand="true">  
     <Container>  
@@ -54,7 +55,7 @@ const posts = useSelector(store => store.posts.posts);
         </Nav>
         <Toast.Body style={{padding:"0",display:"flex",flexWrap:"wrap",
         justifyContent:"space-between", marginTop:"1vh" }}>
-        <svg onClick={()=>dispatch(sortPosts())} height="16px" width="16px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 272.383 272.383" xmlSpace="preserve">  
+        <svg onClick={()=>sortTitlePost()} height="16px" width="16px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 272.383 272.383" xmlSpace="preserve">  
             <g>
 	            <g>
 		            <path style={{fill:"#010002"}} d="M223.214,152.723h-32.237c16.306-20.152,26.76-47.195,26.76-71.415
