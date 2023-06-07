@@ -7,7 +7,7 @@ export default function useNavbarBody() {
     const toggleShowA = () => setShowA(!showA);
     const [search,setSearch] = useState("");
     const dispatch = useDispatch();
-    const handler = (e) => {
+    const searchHandler = (e) => {
         setSearch(e.target.value);
     }
 
@@ -28,5 +28,5 @@ export default function useNavbarBody() {
         }
     },[search])
 
-    return { showA, toggleShowA, search, sortTitlePost, searchSend, handler }
+    return { showA, toggleShowA, search, sortTitlePost, searchSend, searchHandler }
 }

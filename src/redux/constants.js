@@ -3,6 +3,8 @@ export const SET_POSTS = "SET_POSTS";
 export const SEARCH_POSTS = "SEARCH_POSTS";
 export const SORT_POSTS = "SORT_POSTS";
 
+export const SET_POST_ID = "SET_POST_ID";
+
 export const GET_COMMENTS = "GET_COMMENTS";
 export const SET_COMMENTS = "SET_COMMENTS";
 export const TOGGEL_COMMENTS = "TOGGEL_COMMENTS";

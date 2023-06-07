@@ -15,7 +15,7 @@ const dispatch = useDispatch();
 
 
 useEffect(()=>{
-  setTimeout(()=>dispatch(getPosts(page)),1000) ;
+        setTimeout(()=>dispatch(getPosts(page)),1000) ;
 },[page])
 
 
@@ -60,7 +60,8 @@ return (<Container style={styles.container}>
                 { posts.length ? 
                 <ListGroup style={styles.commentsList} >
                         {posts?.map((i)=>{
-                        return <PostItem key={i.id} body={i.body} title={i.title} id={i.id} userId={i.userId} />
+                        return <PostItem key={i.id} body={i.body} 
+                        title={i.title} id={i.id} userId={i.userId} />
                         })}
                 </ListGroup> :
                 errorPost ? 

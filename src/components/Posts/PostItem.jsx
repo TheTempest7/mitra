@@ -12,7 +12,7 @@ import usePostItem from "../../hooks/usePostItem";
 
 export const PostItem = React.memo(({body,title,id,userId}) =>{
 
-    const {currentComments,postID,toggleComments} = useSelector(store => store.comments)
+    const {currentComments,toggleComments} = useSelector(store => store.comments)
     const errorComments = useSelector(store=>store.errors.errorsCommemt);
 
     const { showA, toggleShowA,buttonClick, redirect } = usePostItem({body,title,id,userId,toggleComments});
@@ -27,10 +27,10 @@ export const PostItem = React.memo(({body,title,id,userId}) =>{
             display:"flex", justifyContent:"center",flexBasis:"33.3%",border:"none",
         },
         middle: {
-            display:"flex", justifyContent:"center",backgroundColor:"blue",flexBasis:"50%"
+            display:"flex", justifyContent:"center",flexBasis:"50%"
         },
         small: {
-            display:"flex", justifyContent:"center",backgroundColor:"blue",flexBasis:"100%"
+            display:"flex", justifyContent:"center",flexBasis:"100%"
         },
         card: {
             padding:"1vh 2vw" 
@@ -41,7 +41,6 @@ export const PostItem = React.memo(({body,title,id,userId}) =>{
         },
         cardBody: {
             position:"relative",
-            backgroundColor:"yellow",
             display:"flex",
             flexDirection:"column",
             justifyContent:"space-between",
@@ -84,7 +83,6 @@ export const PostItem = React.memo(({body,title,id,userId}) =>{
                         </Button>
                     </Col>
                     <PostComments toggleShowA={toggleShowA}
-                    postID={postID} 
                     currentComments={currentComments} 
                     id={id}
                     showA={showA} />

@@ -2,17 +2,39 @@
 import { Loader } from '../Loader/Loader';
 import Toast from 'react-bootstrap/Toast';
 import { Container } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
-export const PostComments = ({currentComments, postID, id,toggleShowA,showA}) => {
+export const PostComments = ({currentComments, id,toggleShowA,showA}) => {
+    const styles = {
+        fatherContainer: {
+            display:"flex",
+            justifyContent:"center",
+            position:'absolute',
+            zIndex:'10',
+            flexWrap:'wrap',
+            width:'100%',
+            top:"90%"
+        },
+        toast: {
+            background:"white"
+        },
+        loaderContainer: {
+            display:"flex",
+            justifyContent:"center",
+            margin:" -20% -20% 0 0 ",
+        }
+    }
 
-    return ( showA&&
-    <Container style={{display:"flex",justifyContent:"center",
-    position:'absolute',zIndex:'10',flexWrap:'wrap',width:'100%',top:"90%"}}>
-        { postID===id ?
+    const postID = useSelector(store=>store.comments.postID)
+
+    return ( showA&&  
+    <Container style={styles.fatherContainer}>
+        { (postID===currentComments[0]?.['postId']) ?
         <Container>
                 {currentComments?.map((i)=>{
                 return <Toast 
-                        style={{background:"white"}}  key={i.id-1000} 
+                        style={styles.toast}  key={i.id-1000} 
                         show={showA} onClose={toggleShowA}>
                         <Toast.Body>
                             {i.email}
@@ -22,11 +44,11 @@ export const PostComments = ({currentComments, postID, id,toggleShowA,showA}) =>
                         </Toast.Body>
                         </Toast>
                 })}
-        </Container>:
-        <Container style={{display:"flex",justifyContent:"center",margin:"-20% -20% 0 0 "}} >
+        </Container> :
+        <Container style={styles.loaderContainer} >
             <Loader/>
         </Container>
-    }
+        }
     </Container> 
     )}
 
