@@ -3,9 +3,10 @@ import { Container, ListGroup } from "react-bootstrap";
 import { PostItem } from "./Posts/PostItem";
 import {Nav} from "react-bootstrap";
 import { Loader } from "./Loader/Loader";
+import { useNavigate } from "react-router";
 
 function UserSpecifics() {
-
+    const navigate = useNavigate();
     const posts = useSelector(store => store.posts.posts);
 
     const styles = {
@@ -30,12 +31,14 @@ function UserSpecifics() {
             marginTop:"5vh"
         },
     }
-
+    const backToPost = ()  => {
+        navigate("/PostList");
+    }
     return (
     <Container style={styles.container}>
         { posts.length?
         <div>
-        <Nav.Link style={styles.link} href="/PostList">
+        <Nav.Link style={styles.link} onClick={backToPost} >
             Get back to list of posts
         </Nav.Link>
         <ListGroup style={styles.listFather}>
