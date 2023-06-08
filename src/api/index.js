@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useSelector } from "react-redux";
 
 export const getPosts = async (values) => {
     const res = await axios.get(`https://jsonplaceholder.typicode.com/posts?_page=${values}`)
