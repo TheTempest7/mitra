@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Route, Routes ,Navigate} from "react-router-dom";
-import PostPagination from "./Posts/PostPagination";
-import UserSpecifics from "./UserSpecifics";
+import { Loader } from "./Loader/Loader";
 const AboutMe = React.lazy(()=>import("./AboutMe"));
+const UserSpecifics = React.lazy(()=>import("./UserSpecifics"));
+const PostPagination = React.lazy(()=>import("./Posts/PostPagination"));
 
 
 
@@ -14,10 +15,20 @@ function AppRouter() {
 
 return (
         <Routes  >
-            <Route path='/PostList' element={ <PostPagination/> } />
-            <Route path='/UserSpecifics'  element={ <UserSpecifics/> } />
-            <Route path='/AboutMe'  element={ <AboutMe/> } />
-            <Route path="*"  element={ <Navigate to="/PostList"/> }/>
+            <Route exact path='/' element={
+                <Suspense fallback={<Loader/>}>
+                    <PostPagination/>
+                </Suspense>
+            } />
+            <Route path='/UserSpecifics'  element={
+                <Suspense fallback={<Loader/>}>
+                    <UserSpecifics/>
+                </Suspense>  } />
+            <Route path='/AboutMe'  element={
+                <Suspense fallback={<Loader/>}>
+                    <AboutMe/>
+                </Suspense> } />
+            <Route path="*"  element={ <Navigate to="/"/> }/>
         </Routes> 
 )
 }

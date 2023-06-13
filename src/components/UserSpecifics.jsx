@@ -32,7 +32,7 @@ function UserSpecifics() {
         },
     }
     const backToPost = ()  => {
-        navigate("/PostList");
+        navigate("/");
     }
     return (
     <Container style={styles.container}>

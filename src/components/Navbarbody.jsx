@@ -1,7 +1,9 @@
 
 import { Nav, Navbar, Container, Form, Button, Toast } from 'react-bootstrap';  
+import { LinkContainer } from 'react-router-bootstrap';
 import { useMediaQuery } from 'react-responsive';
 import useNavbarBody from '../hooks/useNavbarBody';
+import { Link } from 'react-router-dom';
 
 function Navbarbody() {
     const  { showA, toggleShowA, search, sortTitlePost, searchSend, searchHandler } = useNavbarBody();
@@ -66,8 +68,12 @@ function Navbarbody() {
                     <p> Yegor </p>
                     <p> 140145 </p>
                 </Toast.Body>
-                <Nav.Link href="/PostList">PostList</Nav.Link>  
-                <Nav.Link href="/AboutMe">AboutMe</Nav.Link>
+                <LinkContainer to="/">
+                    <Nav.Link >PostList</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/AboutMe">
+                    <Nav.Link >AboutMe</Nav.Link>
+                </LinkContainer>
             </Nav>
         </Toast>  
         <Form className="d-flex">
